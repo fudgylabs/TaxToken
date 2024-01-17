@@ -721,8 +721,8 @@ contract TokenContract is ERC20, Ownable {
 	}
 
 	function _transfer(address from, address to, uint256 amount) internal override {
-        require(!isBlacklisted[to]);
-        require(!isBlacklisted[from]);
+		require(!isBlacklisted[to]);
+		require(!isBlacklisted[from]);
 		if (!isExcludeFromTxLimit[from] && !isExcludeFromTxLimit[to])
 			require(maxAmountForTx >= amount, "TDP2");
 		if (!isExcludeFromWalletLimit[to])
