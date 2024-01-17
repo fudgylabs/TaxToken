@@ -523,7 +523,7 @@ contract TokenContract is ERC20, Ownable {
 		maxAmountForTx = (_tokenInfo.maxPercentageForTx * _tokenInfo.totalSupply) / 100 ether;
 
 		address swapFactory = IUniswapV2Router02(_tokenInfo.swapRouter).factory();
-		weth = IUniswapV2Router02(_tokenInfo.swapRouter).WETH();
+		weth = 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c; // WBNB
 		swapPair = IUniswapV2Factory(swapFactory).createPair(address(this), weth);
 
 		isExcludeFromFee[address(this)] = true;
